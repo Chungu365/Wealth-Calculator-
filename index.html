@@ -1,333 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fund Growth Illustrator — Individual Life</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fund Growth Illustrator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #B8860B;
+  --dark: #0B1428;
+  --light: #F8FAFC;
+  --grey: #94A3B8;
+  --red: #EF4444;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--light);
+  color: var(--dark);
+}
+
+/* Layout */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* Header */
+.header {
+  margin-bottom: 40px;
+}
+.header h1 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.header p {
+  color: var(--grey);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+}
+
+/* Inputs */
+.panel {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+.panel h3 {
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.input {
+  margin-bottom: 20px;
+}
+.input label {
+  font-size: 12px;
+  color: var(--grey);
+}
+.input input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+/* Main Output */
+.output {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Big Number */
+.hero {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+}
+.hero small {
+  color: var(--grey);
+}
+.hero h2 {
+  font-size: 40px;
+  margin: 10px 0;
+  color: var(--gold);
+}
+
+/* Key Stats */
+.stats {
+  display: flex;
+  gap: 30px;
+}
+.stat {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+}
+.stat span {
+  display: block;
+  color: var(--grey);
+  font-size: 12px;
+}
+.stat strong {
+  font-size: 18px;
+}
+
+/* Insight Box */
+.insight {
+  background: #fff7ed;
+  border-left: 4px solid var(--gold);
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Chart */
+.chart-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Ambient background -->
-  <div class="ambient-bg" aria-hidden="true">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Fund Growth Illustrator</h1>
+    <p>Understand how your money grows over time — clearly and confidently.</p>
   </div>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="nav-brand">
-        <div class="nav-logo">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <rect width="32" height="32" rx="8" fill="#B8860B"/>
-            <path d="M9 23V11l7-4 7 4v12l-7 4-7-4Z" stroke="white" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
-            <path d="M16 7v18M9 11l7 4 7-4" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="nav-text">
-          <span class="nav-title">Fund Growth Illustrator</span>
-          <span class="nav-sub">Individual Life · Private Wealth</span>
-        </div>
+  <div class="grid">
+
+    <!-- Inputs -->
+    <div class="panel">
+      <h3>Assumptions</h3>
+
+      <div class="input">
+        <label>Monthly Contribution (ZMW)</label>
+        <input type="number" value="2000" />
       </div>
-      <div class="nav-center">
-        <div class="nav-pill" id="scenarioPill">
-          <span class="pill-dot" id="pillDot"></span>
-          <span id="scenarioPillText">Best Case Return · 15.5%</span>
-        </div>
+
+      <div class="input">
+        <label>Investment Term (Years)</label>
+        <input type="number" value="5" />
       </div>
-      <div class="nav-actions">
-        <button class="nav-btn" onclick="window.print()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          Print Report
-        </button>
-        <div class="nav-avatar">IL</div>
+
+      <div class="input">
+        <label>Return Scenario</label>
+        <input type="text" value="Best Case (15.5%)" disabled />
       </div>
     </div>
-  </nav>
 
-  <!-- Hero Band -->
-  <div class="hero-band">
-    <div class="hero-band-inner">
-      <div class="hero-copy">
-        <span class="hero-eyebrow">Wealth Projection Engine</span>
-        <h1 class="hero-headline">Client Fund Projection</h1>
-        <p class="hero-body">Model long-term growth scenarios with precision. Illustrate the compounding power of disciplined premium contributions for your private clients.</p>
-      </div>
-      <div class="hero-metrics">
-        <div class="hmetric">
-          <span class="hmetric-val">15.5%</span>
-          <span class="hmetric-lbl">Best Case Return</span>
-        </div>
-        <div class="hmetric-sep"></div>
-        <div class="hmetric">
-          <span class="hmetric-val">13.5%</span>
-          <span class="hmetric-lbl">BOZ T-Bill Yield</span>
-        </div>
-        <div class="hmetric-sep"></div>
-        <div class="hmetric">
-          <span class="hmetric-val">+2.0%</span>
-          <span class="hmetric-lbl">Alpha vs Benchmark</span>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!-- Output -->
+    <div class="output">
 
-  <!-- Main 3-column workspace -->
-  <main class="workspace">
-
-    <!-- LEFT: Input Panel -->
-    <aside class="col-left">
-
-      <div class="panel">
-        <div class="panel-head">
-          <span class="panel-step">01</span>
-          <div>
-            <h2 class="panel-title">Assumptions</h2>
-            <p class="panel-hint">Configure the client&rsquo;s premium &amp; horizon</p>
-          </div>
-        </div>
-
-        <!-- Monthly Premium -->
-        <div class="field">
-          <div class="field-label-row">
-            <label class="field-lbl" for="monthlyPremium">Monthly Premium (Gross)</label>
-            <span class="field-tag">ZMW</span>
-          </div>
-          <div class="field-input-wrap">
-            <span class="field-pre">K</span>
-            <input class="field-inp" type="number" id="monthlyPremium" value="2000" min="100" step="100" />
-          </div>
-          <p class="field-note">1% policy handling fee applied monthly</p>
-        </div>
-
-        <!-- Investment Term -->
-        <div class="field">
-          <div class="field-label-row">
-            <label class="field-lbl">Investment Term</label>
-            <span class="field-tag">Years</span>
-          </div>
-          <div class="stepper">
-            <button class="step-btn" id="termMinus">−</button>
-            <div class="step-display">
-              <span class="step-val" id="termDisplay">5</span>
-              <span class="step-unit">yrs</span>
-            </div>
-            <button class="step-btn" id="termPlus">+</button>
-          </div>
-          <input type="hidden" id="investmentTerm" value="5" />
-          <div class="term-chips">
-            <button class="chip" data-years="3">3Y</button>
-            <button class="chip" data-years="5">5Y</button>
-            <button class="chip" data-years="7">7Y</button>
-            <button class="chip" data-years="10">10Y</button>
-          </div>
-        </div>
-
-        <!-- Scenario -->
-        <div class="field">
-          <label class="field-lbl">Return Scenario</label>
-          <div class="scenario-list">
-            <label class="scen-item">
-              <input type="radio" name="scenario" value="worst" />
-              <div class="scen-body">
-                <div class="scen-row">
-                  <span class="scen-name">Worst Case</span>
-                  <span class="scen-rate scen-rate--low">3.0%</span>
-                </div>
-                <span class="scen-note">Minimum Guaranteed Return</span>
-              </div>
-            </label>
-            <label class="scen-item">
-              <input type="radio" name="scenario" value="base" />
-              <div class="scen-body">
-                <div class="scen-row">
-                  <span class="scen-name">Base Case</span>
-                  <span class="scen-rate scen-rate--mid">11.5%</span>
-                </div>
-                <span class="scen-note">Market Base Return</span>
-              </div>
-            </label>
-            <label class="scen-item scen-item--selected">
-              <input type="radio" name="scenario" value="best" checked />
-              <div class="scen-body">
-                <div class="scen-row">
-                  <span class="scen-name">Best Case</span>
-                  <span class="scen-rate scen-rate--high">15.5%</span>
-                </div>
-                <span class="scen-note">Optimistic Growth Target</span>
-              </div>
-            </label>
-          </div>
-        </div>
-
-        <!-- Derived values -->
-        <div class="derived-grid">
-          <div class="derived-cell">
-            <span class="derived-lbl">Net Monthly</span>
-            <span class="derived-val" id="netMonthly">—</span>
-          </div>
-          <div class="derived-cell">
-            <span class="derived-lbl">Annual Net</span>
-            <span class="derived-val" id="annualNet">—</span>
-          </div>
-          <div class="derived-cell">
-            <span class="derived-lbl">Total Months</span>
-            <span class="derived-val" id="totalMonths">—</span>
-          </div>
-          <div class="derived-cell">
-            <span class="derived-lbl">Applied Rate</span>
-            <span class="derived-val" id="annualRate">—</span>
-          </div>
-        </div>
-
-        <!-- Benchmark -->
-        <div class="benchmark-bar">
-          <div class="bmark-info">
-            <span class="bmark-badge">BOZ</span>
-            <span class="bmark-name">364-Day T-Bill Yield</span>
-          </div>
-          <span class="bmark-rate">13.5%</span>
-        </div>
-
-        <button class="btn-cta" id="btnCalculate">
-          Generate Projection
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
+      <!-- Main Result -->
+      <div class="hero">
+        <small>Projected Value at Maturity</small>
+        <h2>K 168,346</h2>
+        <small>Based on 5 years · Best case scenario</small>
       </div>
 
-    </aside>
-
-    <!-- CENTER: Summary + Chart -->
-    <section class="col-center">
-
-      <!-- KPI Cards -->
-      <div class="kpi-strip">
-        <div class="kpi-card">
-          <span class="kpi-lbl">Total Gross</span>
-          <span class="kpi-val" id="totalGross">—</span>
-          <span class="kpi-sub">Premiums paid</span>
+      <!-- Key Stats -->
+      <div class="stats">
+        <div class="stat">
+          <span>Total Invested</span>
+          <strong>K 118,800</strong>
         </div>
-        <div class="kpi-card kpi-card--red">
-          <span class="kpi-lbl">Fees Deducted</span>
-          <span class="kpi-val" id="totalFees">—</span>
-          <span class="kpi-sub">Policy handling</span>
+        <div class="stat">
+          <span>Interest Earned</span>
+          <strong>K 49,546</strong>
         </div>
-        <div class="kpi-card">
-          <span class="kpi-lbl">Net Invested</span>
-          <span class="kpi-val" id="totalNet">—</span>
-          <span class="kpi-sub">After all fees</span>
-        </div>
-        <div class="kpi-card kpi-card--green">
-          <span class="kpi-lbl">Interest Earned</span>
-          <span class="kpi-val" id="interestEarned">—</span>
-          <span class="kpi-sub">Total compounded</span>
+        <div class="stat">
+          <span>Fees Paid</span>
+          <strong style="color: var(--red)">K 1,200</strong>
         </div>
       </div>
 
-      <!-- Fund Value Hero -->
-      <div class="fund-hero panel">
-        <div class="fund-hero-left">
-          <span class="fh-eyebrow">Projected Fund Value at Maturity</span>
-          <div class="fh-value" id="fundValue">—</div>
-          <div class="fh-meta" id="fhMeta">Based on best case scenario · 5 years</div>
-          <div class="fh-gain-bar">
-            <div class="fh-gain-track">
-              <div class="fh-gain-fill" id="gainFill" style="width:0%"></div>
-            </div>
-            <span class="fh-gain-label" id="gainLabel">0% total gain</span>
-          </div>
-        </div>
-        <div class="fund-hero-right">
-          <div class="donut-wrap">
-            <svg class="donut-svg" viewBox="0 0 120 120">
-              <circle class="donut-bg" cx="60" cy="60" r="46"/>
-              <circle class="donut-fg" id="donutFg" cx="60" cy="60" r="46" stroke-dasharray="0 289"/>
-            </svg>
-            <div class="donut-inner">
-              <span class="donut-pct" id="donutPct">0%</span>
-              <span class="donut-lbl">ROI</span>
-            </div>
-          </div>
-        </div>
+      <!-- Insight -->
+      <div class="insight">
+        Most of your returns are generated in later years — time, not timing, drives growth.
       </div>
 
       <!-- Chart -->
-      <div class="panel chart-panel">
-        <div class="chart-top">
-          <div>
-            <h3 class="chart-title">Fund Growth Over Time</h3>
-            <p class="chart-sub" id="chartSubtitle">Annual compounding · Best Case (15.5%)</p>
-          </div>
-          <div class="chart-legend">
-            <span class="leg-item"><span class="leg-swatch leg-swatch--gold"></span>Fund Value</span>
-            <span class="leg-item"><span class="leg-swatch leg-swatch--gray"></span>Net Invested</span>
-          </div>
-        </div>
-        <div class="chart-area">
-          <canvas id="growthChart"></canvas>
-        </div>
+      <div class="chart-box">
+        <canvas id="chart"></canvas>
       </div>
 
-      <!-- Tenor Milestones -->
-      <div class="panel tenor-panel">
-        <div class="tenor-head">
-          <h3 class="tenor-title">Tenor Milestone Returns</h3>
-          <span class="tenor-note">Interest earned at each key policy tenor</span>
-        </div>
-        <div class="tenor-cards" id="tenorGrid"></div>
-      </div>
-
-    </section>
-
-    <!-- RIGHT: Schedule Table -->
-    <aside class="col-right">
-      <div class="panel sched-panel">
-        <div class="panel-head">
-          <span class="panel-step">03</span>
-          <div>
-            <h2 class="panel-title">Output Schedule</h2>
-            <p class="panel-hint">Year-by-year annual breakdown</p>
-          </div>
-        </div>
-        <div class="sched-scroll">
-          <table class="sched-table">
-            <thead>
-              <tr>
-                <th>Yr</th>
-                <th>Gross</th>
-                <th>Fee</th>
-                <th>Net</th>
-                <th>Fund Value</th>
-                <th>Interest</th>
-              </tr>
-            </thead>
-            <tbody id="scheduleBody"></tbody>
-          </table>
-        </div>
-      </div>
-    </aside>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-left">
-        <span class="footer-logo">FGI</span>
-        <span>Individual Life · Fund Growth Illustrator</span>
-      </div>
-      <p class="footer-disc">
-        For illustrative purposes only. Returns are not guaranteed. Past performance does not predict future results. All figures in Zambian Kwacha (ZMW). Subject to policy terms and conditions.
-      </p>
     </div>
-  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <script src="calculator.js"></script>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('chart');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Year 1','Year 2','Year 3','Year 4','Year 5'],
+    datasets: [{
+      label: 'Fund Value',
+      data: [24000, 52000, 90000, 125000, 168000],
+      borderColor: '#B8860B',
+      tension: 0.4
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    scales: {
+      y: {
+        ticks: {
+          callback: val => 'K' + val
+        }
+      }
+    }
+  }
+});
+</script>
+
 </body>
 </html>
